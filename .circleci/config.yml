@@ -11,18 +11,7 @@ jobs:
     
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: mvn dependency:go-offline
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-
+   
       # Build the app and run tests
       - run: xcodebuild -target ExperiBank -configuration Debug -destination 'platform=iOS,OS=11.0' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       - run: chmod -R +x ./scripts
@@ -30,7 +19,7 @@ jobs:
       - run: "./scripts/output.sh 'Preparing The Application for Upload...'"
       - run: "./scripts/zip-app.sh ExperiBank.app ExperiBank"
       - run: "./scripts/output.sh 'Uploading The Application...'"
-      - run: mvn test -Dtest=Cloud
+      - run: "./scripts/upload-app.sh"
       - run: "./scripts/output.sh 'Successfully Uploaded The Application...'"
       - run: "./scripts/output.sh 'Running Tests...'"
       

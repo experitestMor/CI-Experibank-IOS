@@ -1,2 +1,2 @@
-APP_PATH=file=@$PWD/app/build/Debug-iphoneos/ExperiBank.ipa
-curl -k -X POST https://cloud.seetest.io/api/v1/applications/new -H "Authorization: Bearer $ACCESS_KEY" -H "Cache-Control: no-cache" -H "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "$APP_PATH"
+APP_PATH=file=/Users/distiller/project/build/Debug-iphoneos/ExperiBank.ipa
+curl -k -X POST https://sales.experitest.com/api/v1/applications/new -H "Authorization: Bearer $accessKey" -H "Cache-Control: no-cache" -H "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "$APP_PATH"
