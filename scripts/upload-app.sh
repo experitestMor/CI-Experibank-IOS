@@ -1,2 +1,2 @@
 pwd
-curl -k -X POST https://sales.experitest.com/api/v1/applications/new -H "Authorization: Bearer $accessKey" -H "Cache-Control: no-cache" -H "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "file=/Users/distiller/project/app/build/Debug-iphoneos/ExperiBank.ipa"
+curl -k -v -X POST https://sales.experitest.com/api/v1/applications/new -H "Authorization: Bearer $accessKey" -H "Cache-Control: no-cache" -H "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -F "file=/Users/distiller/project/app/build/Debug-iphoneos/ExperiBank.ipa"
