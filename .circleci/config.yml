@@ -12,7 +12,7 @@ jobs:
       # Build the app and run tests
       - run: xcodebuild -target ExperiBank -configuration Debug -destination 'platform=iOS,OS=11.0' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       - run: chmod -R +x ./scripts
-      - run: "../scripts/output.sh 'Application Built Successfully...'"
+      - run: "./scripts/output.sh 'Application Built Successfully...'"
       - run: "./scripts/output.sh 'Preparing The Application for Upload...'"
       - run: "./scripts/zip-app.sh ExperiBank.app ExperiBank"
       - run: "./scripts/output.sh 'Uploading The Application...'"
