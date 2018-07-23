@@ -1,5 +1,3 @@
-package com.experitest.upload;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,30 +24,24 @@ public class Cloud{
 
     private static final String APPLICATIONS_URL = "/applications";
     private static final String ACTION = "/new";
-    private String host = "sales.experitest.com";//TODO: host name or ip goes here
-    private String port = "443";//TODO: open port goes here
-    private String webPage= "https://" + host + ":" + port + "/api/v1";
-    private String authStringEnc;
+    private static String host = "demo.experitest.com";//TODO: host name or ip goes here
+    private static String port = "443";//TODO: open port goes here
+    private static String webPage= "https://" + host + ":" + port + "/api/v1";
+    private static String authStringEnc;
 
-    @BeforeMethod
-    public void setup() {
+
+    public static void main(String[] args) throws Exception{
         authStringEnc = System.getenv("accessKey");
-    }
-
-
-    @Test
-    public void testPostNewApplication() throws IOException {
-
         String postURL = prepareURL();
-        uploadFile("/Users/distiller/project/build/Debug-iphoneos/ExperiBank.ipa", postURL);
+        uploadFile("/Users/distiller/project/app/build/Debug-iphoneos/ExperiBank.ipa", postURL);
 
     }
-    private String prepareURL() {
+    private static String prepareURL() {
         String postURL = webPage + APPLICATIONS_URL + ACTION;
         return postURL;
     }
 
-    String uploadFile(String pathToFile, String url) throws IOException {
+    static String uploadFile(String pathToFile, String url) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost uploadFile = new HttpPost(url.toString());
 
