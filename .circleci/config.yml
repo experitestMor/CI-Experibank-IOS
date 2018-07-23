@@ -11,9 +11,12 @@ jobs:
 
       # Build the app and run tests
       - run: xcodebuild -target ExperiBank -configuration Debug -destination 'platform=iOS,OS=11.0' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
-      - store_artifacts:
-          path: ~/Library/Logs/scan
-          destination: scan-logs
+      - run: chmod -R +x ./scripts
+      - run: "../scripts/output.sh 'Application Built Successfully...'"
+      - run: "./scripts/output.sh 'Preparing The Application for Upload...'"
+      - run: "./scripts/zip-app.sh ExperiBank.app ExperiBank"
+      - run: "./scripts/output.sh 'Uploading The Application...'"
+      - run: "./scripts/upload-app.sh"
+      - run: "./scripts/output.sh 'Successfully Uploaded The Application...'"
+      - run: "./scripts/output.sh 'Running Tests...'"
+      - run: mvn test -Dtest=Cloud
