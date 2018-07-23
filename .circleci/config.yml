@@ -1,5 +1,8 @@
 version: 2
 jobs:
+  dependencies:
+    override:
+        - mvn -DskipTests clean
   build:
 
     # Specify the Xcode version to use
