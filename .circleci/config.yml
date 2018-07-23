@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.0"
+
+    steps:
+      - checkout
+
+      # Build the app and run tests
+      - run: xcodebuild -target ExperiBank -configuration Debug -destination 'platform=iOS,OS=11.0' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: scan-test-results
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
