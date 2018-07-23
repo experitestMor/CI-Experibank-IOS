@@ -9,3 +9,5 @@ fi # if you'd rather copy the .app file, then replace the next line with:
 mv $1 Payload
 zip -r $2.ipa Payload
 rm -fr Payload
+ls
+pwd
