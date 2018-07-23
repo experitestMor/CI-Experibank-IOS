@@ -19,7 +19,7 @@ jobs:
       - run: "./scripts/output.sh 'Preparing The Application for Upload...'"
       - run: "./scripts/zip-app.sh ExperiBank.app ExperiBank"
       - run: "./scripts/output.sh 'Uploading The Application...'"
-      - run: "java Cloud.java"
+      - run: "./scripts/upload-app.sh"
       - run: "./scripts/output.sh 'Successfully Uploaded The Application...'"
       - run: "./scripts/output.sh 'Running Tests...'"
       
