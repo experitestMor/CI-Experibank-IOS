@@ -15,7 +15,7 @@ import java.util.logging.Level;
 public class Untitled2 {
     private String reportDirectory = "reports";
     private String reportFormat = "xml";
-    private String testName = "Jenkins iOS";
+    private String testName = "CI iOS";
     private String accessKey = "eyJ4cC51IjoxMzY1NDgsInhwLnAiOjIsInhwLm0iOiJNQSIsImFsZyI6IkhTMjU2In0.eyJleHAiOjE4NDczNTk3OTIsImlzcyI6ImNvbS5leHBlcml0ZXN0In0.VqFw1Fbd_W0kPMvrHCNgQSZCnKhRrNkk14la1HrAPso";
     protected IOSDriver<IOSElement> driver = null;
 
